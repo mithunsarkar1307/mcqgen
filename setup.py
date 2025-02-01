@@ -1,7 +1,7 @@
 from setuptools import find_packages,setup
 
 setup(
-    name='mcqgenrator',
+    name='mcqgenerator',
     version='0.0.1',
     author='mithun sarkar',
     author_email='mithunsarkar1307@gmail.com',

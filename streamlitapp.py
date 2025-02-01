@@ -1,15 +1,11 @@
-import logging
 import os
-from datetime import datetime
+import json
+import traceback
+import pandas as pd
+from dotenv import load_dotenv
+from src.mcqgenerator.utils import read_file, get_table_data
+import streamlit as st
+from langchain.callbacks import get_openai_callback
+from src.mcqgenerator.mcqgenerator import generate_evaluate_chain
+from src.mcqgenerator.logger import logging
 
-LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
-
-log_path = os.path.join(os.getcwd(), "logs")
-
-os.makedirs(log_path, exist_ok=True)
-
-LOG_FILEPATH = os.path.join(log_path, LOG_FILE)
-
-logging.basicConfig(level=logging.INFO, 
-                    filename=LOG_FILEPATH,
-                    format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s"
